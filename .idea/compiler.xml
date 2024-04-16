@@ -7,19 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="javanio" />
         <module name="multiroomchat" />
         <module name="netty" />
         <module name="tranditionalnio" />
       </profile>
-      <profile name="Annotation profile for nettytest" enabled="true">
-        <sourceOutputDir name="../tranditionalnio/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../tranditionalnio/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="javanio" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="javanio" target="1.5" />
+      <module name="nettytest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
