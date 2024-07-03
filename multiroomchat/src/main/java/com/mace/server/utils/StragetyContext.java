@@ -3,7 +3,6 @@ package com.mace.server.utils;
 import com.mace.server.cmd.CmdStrategy;
 import com.mace.server.cmd.LoginCmdStrategy;
 import com.mace.server.cmd.RoomChatCmdStrategy;
-import com.sun.istack.internal.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,6 @@ public class StragetyContext {
         }
     }
 
-    @Nullable
     public static CmdStrategy getStrategy(String cmd) {
         return handlerMap.get(cmd);
     }

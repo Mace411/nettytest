@@ -37,6 +37,11 @@ public class MultiRoomChatServer {
                     }
                 });
         ChannelFuture channelFuture = serverBootstrap.bind(8080);
+        try {
+            channelFuture.sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Channel channel = channelFuture.channel();
         ChannelFuture closeFuture = channel.closeFuture();
         closeFuture.addListener(f -> {

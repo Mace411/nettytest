@@ -57,4 +57,8 @@ public class NettyClient {
             System.err.println("客户端关闭!!!");
         });
     }
+
+    public static void test() {
+
+    }
 }

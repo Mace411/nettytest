@@ -9,9 +9,40 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+
 public class NettyServer {
 
+    static void t() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+//
+//        for (Integer i : list) {
+//            if (i == 1) {
+//                list.remove(i);
+//            }
+//        }
+
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i) == 1) {
+//                list.remove(i);
+//            }
+//        }
+        int[] ints = {1, 2, 3};
+        System.err.println(list.size());
+        System.err.println(list.get(4));
+        System.err.println(ints[4]);
+    }
+
     public static void main(String[] args) {
+        t();
         new ServerBootstrap()
                 .group(new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)
@@ -52,4 +83,34 @@ public class NettyServer {
 //                    // 7、ServerSocketChannel绑定8080端口
 //                }).bind(8081);
     }
+
+
+    static void test() {
+        Object object = new Object();
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        Future<?> submit = scheduledExecutorService.submit(() -> {
+//            try {
+//                System.err.println("任务1");
+//                object.wait();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            int i = 1;
+            while (true) {
+                if (i == Integer.MAX_VALUE) {
+                    i = 1;
+                }
+                i++;
+            }
+        });
+        try {
+            Thread.currentThread().sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.err.println("打断");
+        submit.cancel(true);
+        scheduledExecutorService.submit(() -> System.err.println("任务2"));
+    }
+
 }

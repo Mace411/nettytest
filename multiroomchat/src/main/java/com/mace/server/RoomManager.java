@@ -2,11 +2,9 @@ package com.mace.server;
 
 import com.mace.server.user.User;
 import io.netty.channel.Channel;
-import lombok.Getter;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-@Getter
 public class RoomManager {
     private final static ConcurrentHashMap<Channel, User> users = new ConcurrentHashMap<>();
 

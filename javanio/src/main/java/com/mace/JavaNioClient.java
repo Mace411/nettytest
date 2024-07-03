@@ -10,10 +10,29 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.FutureTask;
 
 public class JavaNioClient {
 
     public static void main(String[] args) {
+
+        FutureTask<Integer> futureTask = new FutureTask<>(() -> {
+            Thread.sleep(3000);
+
+            return 1;
+        });
+        Thread thread = new Thread(futureTask);
+        thread.start();
+        try {
+//            Thread.currentThread().join();
+            thread.join();
+//            Object o = futureTask.get();
+//            System.err.println(o);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }/* catch (ExecutionException e) {
+            e.printStackTrace();
+        }*/
         SocketChannel client = null;
         ByteBuffer readBuffer = ByteBuffer.allocate(16);
         try {

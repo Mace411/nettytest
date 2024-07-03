@@ -10,7 +10,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 import java.time.LocalDateTime;
-import java.util.concurrent.TimeUnit;
 
 /**
  *  boss负责accept，worker负责读写，business负责业务操作
@@ -20,6 +19,7 @@ public class NettyServer {
     private final static int THREAD_NUM = 3;
 
     public static void main(String[] args) {
+        NettyClient.test();
         NioEventLoopGroup boss = new NioEventLoopGroup(1);
         NioEventLoopGroup worker = new NioEventLoopGroup(2);
         NioEventLoopGroup[] business = new NioEventLoopGroup[THREAD_NUM];

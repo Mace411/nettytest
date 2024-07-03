@@ -12,7 +12,6 @@
         <module>tranditionalnio</module>
         <module>javanio</module>
         <module>netty</module>
-        <module>javanio</module>
         <module>multiroomchat</module>
     </modules>
 
